@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Club Management Dashboard - OUSL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            background-color: #4CAF50;
+            padding: 15px 20px;
+            color: white;
+            text-align: center;
+        }
+
+        /* Navigation Bar */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            background-color: #333;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background-color: #575757;
+        }
+
+        /* Content Sections */
+        .tab-content {
+            padding: 20px;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .container {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .container .sidebar {
+            width: 200px;
+            background-color: #333;
+            color: white;
+            padding-top: 20px;
+        }
+
+        .container .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .container .sidebar ul li {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .container .sidebar ul li a:hover {
+            background-color: #575757;
+        }
+
+        .container .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        /* Buttons */
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Sports Club Management Dashboard - OUSL</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="javascript:void(0)" onclick="showTab('login')">Login</a></li>
+        <li><a href="javascript:void(0)" onclick="showTab('member-dashboard')">Member Dashboard</a></li>
+        <li><a href="javascript:void(0)" onclick="showTab('event-registration')">Event Registration</a></li>
+        <li><a href="javascript:void(0)" onclick="showTab('equipment-reservation')">Equipment Reservation</a></li>
+        <li><a href="javascript:void(0)" onclick="showTab('admin-dashboard')">Admin Dashboard</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <div class="sidebar">
+        <ul>
+            <li><a href="javascript:void(0)" onclick="showTab('member-dashboard')">Dashboard</a></li>
+            <li><a href="javascript:void(0)" onclick="showTab('event-registration')">Events</a></li>
+            <li><a href="javascript:void(0)" onclick="showTab('equipment-reservation')">Equipment</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <!-- Login Section -->
+        <div class="tab-content" id="login">
+            <h2>Login</h2>
+            <form>
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username" required><br><br>
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" required><br><br>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <!-- Member Dashboard -->
+        <div class="tab-content" id="member-dashboard">
+            <h2>Welcome, Member</h2>
+            <div class="card">
+                <h3>Upcoming Events</h3>
+                <p>No events registered yet!</p>
+            </div>
+            <div class="card">
+                <h3>Equipment Reservations</h3>
+                <p>No equipment reserved yet!</p>
+            </div>
+        </div>
+
+        <!-- Event Registration -->
+        <div class="tab-content" id="event-registration">
+            <h2>Upcoming Events</h2>
+            <div class="card">
+                <h3>Football Match</h3>
+                <p>Date: April 20, 2025</p>
+                <p>Location: Stadium</p>
+                <button>Register</button>
+            </div>
+            <div class="card">
+                <h3>Cricket Practice</h3>
+                <p>Date: April 22, 2025</p>
+                <p>Location: Field 1</p>
+                <button>Register</button>
+            </div>
+        </div>
+
+        <!-- Equipment Reservation -->
+        <div class="tab-content" id="equipment-reservation">
+            <h2>Available Equipment</h2>
+            <div class="card">
+                <h3>Football</h3>
+                <p>Status: Available</p>
+                <button>Reserve</button>
+            </div>
+            <div class="card">
+                <h3>Cricket Bat</h3>
+                <p>Status: Reserved</p>
+                <button disabled>Reserved</button>
+            </div>
+        </div>
+
+        <!-- Admin Dashboard -->
+        <div class="tab-content" id="admin-dashboard">
+            <h2>Admin Dashboard</h2>
+            <button>Create New Event</button>
+            <h3>Event List</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Event</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Football Match</td>
+                        <td>April 20, 2025</td>
+                        <td>Stadium</td>
+                    </tr>
+                    <tr>
+                        <td>Cricket Practice</td>
+                        <td>April 22, 2025</td>
+                        <td>Field 1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showTab(tabId) {
+        // Hide all tabs
+        var tabs = document.querySelectorAll('.tab-content');
+        tabs.forEach(function(tab) {
+            tab.classList.remove('active');
+        });
+        // Show the selected tab
+        document.getElementById(tabId).classList.add('active');
+    }
+    
+    // Default to login screen
+    showTab('login');
+</script>
+
+</body>
+</html>
